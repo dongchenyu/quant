@@ -1,29 +1,4 @@
-### 1. register_buffer
-先理解成一个模型参数,但是不是可训练参数,不更新,后面好像还是当Tensor来用的.
-```
-self.register_buffer('qweight', torch.randint(-127, 127, (self out_features, elf.in_features), dtype=torch.int8, requires_grad=False, device=dev))
-```
-
-大意就是先确定好一个量化参数的槽位,然后后面加载模型(load_checkpoint_and_dispatch)的时候再把它直接填充进去,但是具体过程还没太看懂,先留个坑吧.
-
-后面应该是通过state_dict key名字匹配,例如量化 checkpoint 里面可能有：
-```
-model.layers.0.self_attn.q_proj.qweight
-model.layers.0.self_attn.q_proj.weight_scale
-model.layers.0.self_attn.q_proj.bias
-
-model.layers.0.self_attn.k_proj.qweight
-model.layers.0.self_attn.k_proj.weight_scale
-```
-
-而经过 _load_quantized_modules() 以后，模型内部正好也存在：
-```
-model.layers.0.self_attn.q_proj.qweight
-model.layers.0.self_attn.q_proj.weight_scale
-```
-成功匹配,但是整个调用链条还没看懂,留个坑之后再看,现在似乎不需要对整个调用过程完全掌握?
-
-### 2.python 怎么绑定C++
+### 1.python 怎么绑定C++
 下面这段函数在python中调用了一个函数w8a8_int8_linear_bbf16_obf16_per_tensor,然而这个函数其实并没有定义在python中,那我们怎么找它定义在哪里,其实没有在python中定义,那它基本上就是绑定C++来定义了. 顺便找一下在哪里import的
 ```
 from runtime.sq_fp8_kernels import w8a8_int8_linear_bbf16_obf16_per_tensor
@@ -75,7 +50,7 @@ m.def("w8a8_int8_linear_bbf16_obf16_per_tensor", &w8a8_int8_linear_bbf16_obf16_p
 torch::Tensor w8a8_int8_linear_bbf16_obf16_per_tensor(...){}
 ```
 
-### 3. CUTLASS
+### 2. CUTLASS
 核心类: 前四组参数分别表示ABCD的数据类型与内存排布方式,后面是架构,先看这些,后面的分型随后再看吧.
 ```
 using Gemm = cutlass::gemm::device::Gemm<
@@ -145,7 +120,7 @@ cutlass::gemm::GemmShape<64, 64, 64>,
 cutlass::gemm::GemmShape<16, 8, 32>,
 ```
 
-### 4. 模型调用链路
+### 3. 模型调用链路
 def from_pretrained()函数的作用是从config.json中先拿到对应的模型类,比如llama,Qwen之类.
 check_and_get_model_type的作用是获取模型的种类.
 ```
@@ -168,7 +143,19 @@ with init_empty_weights():
 ```
 def _load_quantized_modules(self, model, quant_config, dtype=torch.float16):
 ```
-其核心思想是将原来的网络层权重模型替换成量化之后的权重模型, 此时我们已经完成了根据原始的,未量化之前的模型转变成了量化之后的模型,接下来是加载量化之后的模型的权重.
+其核心思想是将原来的网络层权重模型替换成量化之后的权重模型, 此时我们已经完成了根据原始的,未量化之前的模型转变成了量化之后的模型.
+```
+// 量化之前的网络层的名称为
+model.layers.0.self_attn.q_proj.weight
+model.layers.0.self_attn.q_proj.bias
+// 量化之后的网络层的名称为
+model.layers.0.self_attn.q_proj.qweight
+model.layers.0.self_attn.q_proj.weight_scale
+model.layers.0.self_attn.q_proj.bias
+
+//_load_quantized_modules的作用是将模型结构从上面变成下面 
+```
+接下来是加载量化之后的模型的权重.
 ```
 load_checkpoint_and_dispatch(
     model,
@@ -204,4 +191,9 @@ FP8Linear
 创建QuantLinear空壳
         |
 替换原Linear
+```
+
+register_buffer可以理解成一个模型参数,但是不是可训练参数,不更新.
+```
+self.register_buffer('qweight', torch.randint(-127, 127, (self out_features, elf.in_features), dtype=torch.int8, requires_grad=False, device=dev))
 ```
