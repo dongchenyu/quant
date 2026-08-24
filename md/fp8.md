@@ -18,3 +18,13 @@ S | EEEEE | MM
 x = (−1)^{S} × 2 ^ {e − 15} × (1 + m / 4​)
 
 最大值是57344
+
+### FP8 量化
+FP8的表示范围是 -448 - 448, FP8量化通常分两个步骤,以per-tensor对称量化为例,首先是求出tensor中的abs最大值,然后将scale赋值为max(abs) / 448(fp8.max),将量化的tensor的值压缩到fp8能表示的范围里面.
+
+第二步是将前一步压缩的值量化到fp8表示的格点上,这一步不需要程序员写运算过程,可以交给pytorch/cuda来做.比如
+
+```
+fp8_dtype = torch.float8_e4m3fn
+x_fp8 = x_scaled.to(fp8_dtype)
+```
