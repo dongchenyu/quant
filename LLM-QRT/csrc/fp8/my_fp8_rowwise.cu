@@ -152,7 +152,7 @@ torch::Tensor my_f8f8bf16_rowwise(
 
     BiasArguments bias_arguments{
         bias.has_value() ? reinterpret_cast<DtypeBias*>(bias -> data_ptr()) : nullptr,
-        DtypeBias(1),
+        DtypeBias(0),
         {cute::_0{}, cute::_1{}, problem_size.n()}
     };
 
@@ -276,11 +276,13 @@ torch::Tensor my_f8f8bf16_rowwise(
 
     CUTLASS_CHECK(gemm.initialize(arguments, workspace.data_ptr()));
     CUTLASS_CHECK(gemm());
-    CUDA_CHECK(cudaDeviceSynchronize());
+    CUDA_CHECK(cudaGetLastError());
+    //CUDA_CHECK(cudaDeviceSynchronize());
 
     return out;
 }
 
+/*
 int main(){
     constexpr int M = 32;
     constexpr int N = 64;
@@ -405,6 +407,7 @@ int main(){
 
     return pass ? 0 : 1;
 }
+*/
 
 /*
 nvcc my_fp8_rowwise.cu \

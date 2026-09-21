@@ -44,8 +44,16 @@ using LayoutInputA = cutlass::layout::RowMajor;
 using LayoutInputB = cutlass::layout::ColumnMajor;
 using LayoutOutput = cutlass::layout::RowMajor;
     
-using ThreadblockShape = cutlass::gemm::GemmShape<128, 128, 64>;
-using WarpShape = cutlass::gemm::GemmShape<64, 64, 64>;
+//using ThreadblockShape = cutlass::gemm::GemmShape<128, 128, 64>;
+//using WarpShape = cutlass::gemm::GemmShape<64, 64, 64>;
+//using InstructionShape = cutlass::gemm::GemmShape<16, 8, 32>;
+
+//using ThreadblockShape = cutlass::gemm::GemmShape<64, 64, 64>;
+//using WarpShape = cutlass::gemm::GemmShape<32, 64, 64>;
+//using InstructionShape = cutlass::gemm::GemmShape<16, 8, 32>;
+
+using ThreadblockShape = cutlass::gemm::GemmShape<32, 64, 128>;
+using WarpShape = cutlass::gemm::GemmShape<16, 64, 64>;
 using InstructionShape = cutlass::gemm::GemmShape<16, 8, 32>;
 
 using LinearCombination = cutlass::epilogue::thread::LinearCombination<
@@ -153,14 +161,30 @@ torch::Tensor my_f8f8bf16_tensorwise(
 
     auto options = torch::TensorOptions().dtype(torch::kBFloat16).device(input.device());
     
+    TORCH_CHECK(
+        bias.has_value() || beta == 0.0f,
+        "beta must be 0 when bias is None"
+    );
+
+    /*
     torch::Tensor bias_matrix;
     if(bias.has_value()){
         bias_matrix = bias->view({1, N}).repeat({M, 1}).contiguous();
     } else{
         bias_matrix = torch::zeros({M, N}, options);
     }
+    */
 
-    auto output = torch::zeros({M, N},options);
+    torch::Tensor bias_matrix;
+    ElementOutput* bias_ptr = nullptr;
+    if (bias.has_value()) {
+        // Keep the original bias semantics unchanged.
+        bias_matrix = bias->view({1, N}).repeat({M, 1}).contiguous();
+        bias_ptr = static_cast<ElementOutput*>(bias_matrix.data_ptr());
+    }
+
+    ////auto output = torch::zeros({M, N},options);
+    auto output = torch::empty({M, N}, options);
     
     ////
     //void* input_data = input.data_ptr();
@@ -169,7 +193,7 @@ torch::Tensor my_f8f8bf16_tensorwise(
 
     ElementInputA* input_ptr = static_cast<ElementInputA*>(input.data_ptr());
     ElementInputB* weight_ptr = static_cast<ElementInputB*>(weight.data_ptr());
-    ElementOutput* bias_ptr = static_cast<ElementOutput*>(bias_matrix.data_ptr());
+    ////ElementOutput* bias_ptr = static_cast<ElementOutput*>(bias_matrix.data_ptr());
     ElementOutput* output_ptr = static_cast<ElementOutput*>(output.data_ptr());
 
     run_cutlass_fp8_gemm(input_ptr, weight_ptr, bias_ptr, output_ptr,
@@ -224,6 +248,7 @@ void cpu_ref(
     }
 }
 
+/*
 int main(){
     int M = 128;
     int N = 128;
@@ -331,6 +356,7 @@ int main(){
     CUDA_CHECK(cudaFree(d_D));
 
 }
+*/
 
 /*
 nvcc my_fp8_tensorwise.cu \

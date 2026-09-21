@@ -12,6 +12,21 @@
 #include <iostream>
 #include <cmath>
 
+// ============================================================
+// CUDA CHECK
+// ============================================================
+
+#define CUDA_CHECK(call)                                                   \
+    do {                                                                   \
+        cudaError_t err = call;                                            \
+        if (err != cudaSuccess) {                                          \
+            std::cerr << "CUDA Error: "                                    \
+                      << cudaGetErrorString(err)                            \
+                      << " at line " << __LINE__ << std::endl;              \
+            std::exit(EXIT_FAILURE);                                       \
+        }                                                                  \
+    } while (0)
+
 /*
 torch::Tensor input,  // INT8
 torch::Tensor weight, // INT8
@@ -182,7 +197,7 @@ torch::Tensor cpu_int8_gemm_ref(torch::Tensor input, torch::Tensor weight, torch
     return ref;
 }
 
-int main(){
+/*int main(){
     torch::manual_seed(0);
     torch::Device device(torch::kCUDA, 0);
 
@@ -246,7 +261,34 @@ int main(){
 
 
     return 0;
-}
+}*/
+
+/*
+nvcc \
+  runtime_refact/csrc/smoothquant/learn_int8_gemm.cu \
+  -o learn_int8_gemm \
+  -std=c++17 \
+  -O3 \
+  -arch=sm_80 \
+  -D_GLIBCXX_USE_CXX11_ABI=1 \
+  -U__CUDA_NO_HALF_OPERATORS__ \
+  -U__CUDA_NO_HALF_CONVERSIONS__ \
+  -U__CUDA_NO_HALF2_OPERATORS__ \
+  -I runtime_refact/3rdparty/cutlass/include \
+  -I runtime_refact/3rdparty/cutlass/tools/util/include \
+  -I /root/miniconda3/lib/python3.12/site-packages/torch/include \
+  -I /root/miniconda3/lib/python3.12/site-packages/torch/include/torch/csrc/api/include \
+  -I /usr/local/cuda/include \
+  -I /root/miniconda3/include/python3.12 \
+  -L /root/miniconda3/lib/python3.12/site-packages/torch/lib \
+  -L /usr/local/cuda/lib64 \
+  -ltorch \
+  -ltorch_cpu \
+  -ltorch_cuda \
+  -lc10 \
+  -lc10_cuda \
+  -lcudart
+*/
 
 /*
 nvcc \
@@ -263,8 +305,8 @@ nvcc \
   -I runtime_refact/3rdparty/cutlass/tools/util/include \
   -I /root/miniconda3/lib/python3.12/site-packages/torch/include \
   -I /root/miniconda3/lib/python3.12/site-packages/torch/include/torch/csrc/api/include \
-  -I /usr/local/cuda/include \
   -I /root/miniconda3/include/python3.12 \
+  -I /usr/local/cuda/include \
   -L /root/miniconda3/lib/python3.12/site-packages/torch/lib \
   -L /usr/local/cuda/lib64 \
   -ltorch \
