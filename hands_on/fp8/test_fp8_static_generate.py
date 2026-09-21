@@ -47,3 +47,7 @@ text = tokenizer.decode(output_ids[0], skip_special_tokens=True)
 print(text)
 
 print("\nPASS")
+
+# python hands_on/fp8/calibrate_fp8_static.py
+# python hands_on/fp8/make_fp8_static_checkpoint.py
+# python hands_on/fp8/test_fp8_static_generate.py

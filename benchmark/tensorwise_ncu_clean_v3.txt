@@ -1,0 +1,1038 @@
+==PROF== Connected to process 24277 (/opt/Anaconda3/bin/python3.12)
+==PROF== Profiling "Kernel": 0%....50%....100% - 8 passes
+==PROF== Profiling "Kernel": 0%....50%....100% - 8 passes
+==PROF== Profiling "Kernel": 0%....50%....100% - 8 passes
+==PROF== Profiling "Kernel": 0%....50%....100% - 8 passes
+==PROF== Profiling "Kernel": 0%....50%....100% - 8 passes
+==PROF== Profiling "Kernel": 0%....50%....100% - 8 passes
+==PROF== Profiling "Kernel": 0%....50%....100% - 8 passes
+==PROF== Profiling "Kernel": 0%....50%....100% - 8 passes
+==PROF== Profiling "Kernel": 0%....50%....100% - 8 passes
+==PROF== Profiling "Kernel": 0%....50%....100% - 8 passes
+==PROF== Profiling "Kernel": 0%....50%....100% - 8 passes
+==PROF== Profiling "Kernel": 0%....50%....100% - 8 passes
+==PROF== Profiling "Kernel": 0%....50%....100% - 8 passes
+==PROF== Profiling "Kernel": 0%....50%....100% - 8 passes
+==PROF== Profiling "Kernel": 0%....50%....100% - 8 passes
+==PROF== Disconnected from process 24277
+[24277] python3.12@127.0.0.1
+  void Kernel<Gemm<MmaMultistage<GemmShape<32, 64, 128>, PredicatedTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajor, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, PredicatedTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajor, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, float, RowMajor, MmaPolicy<MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, MatrixShape<0, 0>, MatrixShape<0, 0>, 2>, 3, 0, bool>, Epilogue<GemmShape<32, 64, 128>, MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, 2, PredicatedTileIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>, bfloat16_t, 0, NoPermute, 0>, FragmentIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, Array<float, 4, 1>, RowMajor>, TileIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, RowMajor>, SharedLoadIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>::CompactedThreadMap, float, 32>, LinearCombination<bfloat16_t, 8, float, float, 0, 2, bfloat16_t>, MatrixShape<0, 8>, 1, 1>, GemmIdentityThreadblockSwizzle<1>, 0>>(Params) (4, 14, 1)x(128, 1, 1), Context 1, Stream 7, Device 0, CC 8.9
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz        10.22
+    SM Frequency                    Ghz         2.19
+    Elapsed Cycles                cycle       33,512
+    Memory Throughput                 %        38.80
+    DRAM Throughput                   %        33.44
+    Duration                         us        15.23
+    L1/TEX Cache Throughput           %        49.77
+    L2 Cache Throughput               %        38.80
+    SM Active Cycles              cycle    12,826.38
+    Compute (SM) Throughput           %        12.80
+    ----------------------- ----------- ------------
+
+    OPT   This kernel grid is too small to fill the available resources on this device, resulting in only 0.2 full      
+          waves across all SMs. Look at Launch Statistics for more details.                                             
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   128
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                     56
+    Registers Per Thread             register/thread             142
+    Shared Memory Configuration Size           Kbyte          102.40
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block      Kbyte/block           36.86
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM             128
+    Stack Size                                                 1,024
+    Threads                                   thread           7,168
+    # TPCs                                                        64
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                                0.22
+    -------------------------------- --------------- ---------------
+
+    OPT   Est. Speedup: 56.25%                                                                                          
+          The grid for this launch is configured to execute only 56 blocks, which is less than the GPU's 128            
+          multiprocessors. This can underutilize some multiprocessors. If you do not intend to execute this kernel      
+          concurrently with other workloads, consider reducing the block size to have at least one block per            
+          multiprocessor or increase the size of the grid to fully utilize the available hardware resources. See the    
+          Hardware Model (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model)            
+          description for more details on launch configurations.                                                        
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           24
+    Block Limit Registers                 block            3
+    Block Limit Shared Mem                block            2
+    Block Limit Warps                     block           12
+    Theoretical Active Warps per SM        warp            8
+    Theoretical Occupancy                     %        16.67
+    Achieved Occupancy                        %         8.37
+    Achieved Active Warps Per SM           warp         4.02
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 83.33%                                                                                    
+          The 2.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the       
+          hardware maximum of 12. This kernel's theoretical occupancy (16.7%) is limited by the required amount of      
+          shared memory.                                                                                                
+
+  void Kernel<Gemm<MmaMultistage<GemmShape<32, 64, 128>, PredicatedTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajor, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, PredicatedTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajor, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, float, RowMajor, MmaPolicy<MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, MatrixShape<0, 0>, MatrixShape<0, 0>, 2>, 3, 0, bool>, Epilogue<GemmShape<32, 64, 128>, MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, 2, PredicatedTileIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>, bfloat16_t, 0, NoPermute, 0>, FragmentIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, Array<float, 4, 1>, RowMajor>, TileIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, RowMajor>, SharedLoadIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>::CompactedThreadMap, float, 32>, LinearCombination<bfloat16_t, 8, float, float, 0, 2, bfloat16_t>, MatrixShape<0, 8>, 1, 1>, GemmIdentityThreadblockSwizzle<1>, 0>>(Params) (4, 14, 1)x(128, 1, 1), Context 1, Stream 7, Device 0, CC 8.9
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz        10.21
+    SM Frequency                    Ghz         2.19
+    Elapsed Cycles                cycle       33,090
+    Memory Throughput                 %        38.81
+    DRAM Throughput                   %        33.93
+    Duration                         us        15.04
+    L1/TEX Cache Throughput           %        49.35
+    L2 Cache Throughput               %        38.81
+    SM Active Cycles              cycle    12,934.91
+    Compute (SM) Throughput           %        13.00
+    ----------------------- ----------- ------------
+
+    OPT   This kernel grid is too small to fill the available resources on this device, resulting in only 0.2 full      
+          waves across all SMs. Look at Launch Statistics for more details.                                             
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   128
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                     56
+    Registers Per Thread             register/thread             142
+    Shared Memory Configuration Size           Kbyte          102.40
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block      Kbyte/block           36.86
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM             128
+    Stack Size                                                 1,024
+    Threads                                   thread           7,168
+    # TPCs                                                        64
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                                0.22
+    -------------------------------- --------------- ---------------
+
+    OPT   Est. Speedup: 56.25%                                                                                          
+          The grid for this launch is configured to execute only 56 blocks, which is less than the GPU's 128            
+          multiprocessors. This can underutilize some multiprocessors. If you do not intend to execute this kernel      
+          concurrently with other workloads, consider reducing the block size to have at least one block per            
+          multiprocessor or increase the size of the grid to fully utilize the available hardware resources. See the    
+          Hardware Model (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model)            
+          description for more details on launch configurations.                                                        
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           24
+    Block Limit Registers                 block            3
+    Block Limit Shared Mem                block            2
+    Block Limit Warps                     block           12
+    Theoretical Active Warps per SM        warp            8
+    Theoretical Occupancy                     %        16.67
+    Achieved Occupancy                        %         8.44
+    Achieved Active Warps Per SM           warp         4.05
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 83.33%                                                                                    
+          The 2.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the       
+          hardware maximum of 12. This kernel's theoretical occupancy (16.7%) is limited by the required amount of      
+          shared memory.                                                                                                
+
+  void Kernel<Gemm<MmaMultistage<GemmShape<32, 64, 128>, PredicatedTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajor, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, PredicatedTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajor, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, float, RowMajor, MmaPolicy<MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, MatrixShape<0, 0>, MatrixShape<0, 0>, 2>, 3, 0, bool>, Epilogue<GemmShape<32, 64, 128>, MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, 2, PredicatedTileIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>, bfloat16_t, 0, NoPermute, 0>, FragmentIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, Array<float, 4, 1>, RowMajor>, TileIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, RowMajor>, SharedLoadIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>::CompactedThreadMap, float, 32>, LinearCombination<bfloat16_t, 8, float, float, 0, 2, bfloat16_t>, MatrixShape<0, 8>, 1, 1>, GemmIdentityThreadblockSwizzle<1>, 0>>(Params) (4, 14, 1)x(128, 1, 1), Context 1, Stream 7, Device 0, CC 8.9
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz        10.22
+    SM Frequency                    Ghz         2.18
+    Elapsed Cycles                cycle       33,089
+    Memory Throughput                 %        38.74
+    DRAM Throughput                   %        33.66
+    Duration                         us        15.14
+    L1/TEX Cache Throughput           %        50.07
+    L2 Cache Throughput               %        38.74
+    SM Active Cycles              cycle    12,749.36
+    Compute (SM) Throughput           %        12.82
+    ----------------------- ----------- ------------
+
+    OPT   This kernel grid is too small to fill the available resources on this device, resulting in only 0.2 full      
+          waves across all SMs. Look at Launch Statistics for more details.                                             
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   128
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                     56
+    Registers Per Thread             register/thread             142
+    Shared Memory Configuration Size           Kbyte          102.40
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block      Kbyte/block           36.86
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM             128
+    Stack Size                                                 1,024
+    Threads                                   thread           7,168
+    # TPCs                                                        64
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                                0.22
+    -------------------------------- --------------- ---------------
+
+    OPT   Est. Speedup: 56.25%                                                                                          
+          The grid for this launch is configured to execute only 56 blocks, which is less than the GPU's 128            
+          multiprocessors. This can underutilize some multiprocessors. If you do not intend to execute this kernel      
+          concurrently with other workloads, consider reducing the block size to have at least one block per            
+          multiprocessor or increase the size of the grid to fully utilize the available hardware resources. See the    
+          Hardware Model (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model)            
+          description for more details on launch configurations.                                                        
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           24
+    Block Limit Registers                 block            3
+    Block Limit Shared Mem                block            2
+    Block Limit Warps                     block           12
+    Theoretical Active Warps per SM        warp            8
+    Theoretical Occupancy                     %        16.67
+    Achieved Occupancy                        %         8.27
+    Achieved Active Warps Per SM           warp         3.97
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 83.33%                                                                                    
+          The 2.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the       
+          hardware maximum of 12. This kernel's theoretical occupancy (16.7%) is limited by the required amount of      
+          shared memory.                                                                                                
+
+  void Kernel<Gemm<MmaMultistage<GemmShape<32, 64, 128>, PredicatedTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajor, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, PredicatedTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajor, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, float, RowMajor, MmaPolicy<MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, MatrixShape<0, 0>, MatrixShape<0, 0>, 2>, 3, 0, bool>, Epilogue<GemmShape<32, 64, 128>, MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, 2, PredicatedTileIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>, bfloat16_t, 0, NoPermute, 0>, FragmentIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, Array<float, 4, 1>, RowMajor>, TileIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, RowMajor>, SharedLoadIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>::CompactedThreadMap, float, 32>, LinearCombination<bfloat16_t, 8, float, float, 0, 2, bfloat16_t>, MatrixShape<0, 8>, 1, 1>, GemmIdentityThreadblockSwizzle<1>, 0>>(Params) (4, 14, 1)x(128, 1, 1), Context 1, Stream 7, Device 0, CC 8.9
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz        10.22
+    SM Frequency                    Ghz         2.18
+    Elapsed Cycles                cycle       33,619
+    Memory Throughput                 %        38.07
+    DRAM Throughput                   %        33.10
+    Duration                         us        15.39
+    L1/TEX Cache Throughput           %        49.54
+    L2 Cache Throughput               %        38.07
+    SM Active Cycles              cycle    12,887.42
+    Compute (SM) Throughput           %        13.05
+    ----------------------- ----------- ------------
+
+    OPT   This kernel grid is too small to fill the available resources on this device, resulting in only 0.2 full      
+          waves across all SMs. Look at Launch Statistics for more details.                                             
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   128
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                     56
+    Registers Per Thread             register/thread             142
+    Shared Memory Configuration Size           Kbyte          102.40
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block      Kbyte/block           36.86
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM             128
+    Stack Size                                                 1,024
+    Threads                                   thread           7,168
+    # TPCs                                                        64
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                                0.22
+    -------------------------------- --------------- ---------------
+
+    OPT   Est. Speedup: 56.25%                                                                                          
+          The grid for this launch is configured to execute only 56 blocks, which is less than the GPU's 128            
+          multiprocessors. This can underutilize some multiprocessors. If you do not intend to execute this kernel      
+          concurrently with other workloads, consider reducing the block size to have at least one block per            
+          multiprocessor or increase the size of the grid to fully utilize the available hardware resources. See the    
+          Hardware Model (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model)            
+          description for more details on launch configurations.                                                        
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           24
+    Block Limit Registers                 block            3
+    Block Limit Shared Mem                block            2
+    Block Limit Warps                     block           12
+    Theoretical Active Warps per SM        warp            8
+    Theoretical Occupancy                     %        16.67
+    Achieved Occupancy                        %         8.31
+    Achieved Active Warps Per SM           warp         3.99
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 83.33%                                                                                    
+          The 2.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the       
+          hardware maximum of 12. This kernel's theoretical occupancy (16.7%) is limited by the required amount of      
+          shared memory.                                                                                                
+
+  void Kernel<Gemm<MmaMultistage<GemmShape<32, 64, 128>, PredicatedTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajor, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, PredicatedTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajor, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, float, RowMajor, MmaPolicy<MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, MatrixShape<0, 0>, MatrixShape<0, 0>, 2>, 3, 0, bool>, Epilogue<GemmShape<32, 64, 128>, MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, 2, PredicatedTileIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>, bfloat16_t, 0, NoPermute, 0>, FragmentIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, Array<float, 4, 1>, RowMajor>, TileIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, RowMajor>, SharedLoadIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>::CompactedThreadMap, float, 32>, LinearCombination<bfloat16_t, 8, float, float, 0, 2, bfloat16_t>, MatrixShape<0, 8>, 1, 1>, GemmIdentityThreadblockSwizzle<1>, 0>>(Params) (4, 14, 1)x(128, 1, 1), Context 1, Stream 7, Device 0, CC 8.9
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz        10.22
+    SM Frequency                    Ghz         2.16
+    Elapsed Cycles                cycle       32,489
+    Memory Throughput                 %        39.28
+    DRAM Throughput                   %        33.94
+    Duration                         us        15.01
+    L1/TEX Cache Throughput           %        49.92
+    L2 Cache Throughput               %        39.28
+    SM Active Cycles              cycle    12,789.22
+    Compute (SM) Throughput           %        13.13
+    ----------------------- ----------- ------------
+
+    OPT   This kernel grid is too small to fill the available resources on this device, resulting in only 0.2 full      
+          waves across all SMs. Look at Launch Statistics for more details.                                             
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   128
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                     56
+    Registers Per Thread             register/thread             142
+    Shared Memory Configuration Size           Kbyte          102.40
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block      Kbyte/block           36.86
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM             128
+    Stack Size                                                 1,024
+    Threads                                   thread           7,168
+    # TPCs                                                        64
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                                0.22
+    -------------------------------- --------------- ---------------
+
+    OPT   Est. Speedup: 56.25%                                                                                          
+          The grid for this launch is configured to execute only 56 blocks, which is less than the GPU's 128            
+          multiprocessors. This can underutilize some multiprocessors. If you do not intend to execute this kernel      
+          concurrently with other workloads, consider reducing the block size to have at least one block per            
+          multiprocessor or increase the size of the grid to fully utilize the available hardware resources. See the    
+          Hardware Model (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model)            
+          description for more details on launch configurations.                                                        
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           24
+    Block Limit Registers                 block            3
+    Block Limit Shared Mem                block            2
+    Block Limit Warps                     block           12
+    Theoretical Active Warps per SM        warp            8
+    Theoretical Occupancy                     %        16.67
+    Achieved Occupancy                        %         8.53
+    Achieved Active Warps Per SM           warp         4.10
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 83.33%                                                                                    
+          The 2.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the       
+          hardware maximum of 12. This kernel's theoretical occupancy (16.7%) is limited by the required amount of      
+          shared memory.                                                                                                
+
+  void Kernel<Gemm<MmaMultistage<GemmShape<32, 64, 128>, PredicatedTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajor, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, PredicatedTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajor, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, float, RowMajor, MmaPolicy<MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, MatrixShape<0, 0>, MatrixShape<0, 0>, 2>, 3, 0, bool>, Epilogue<GemmShape<32, 64, 128>, MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, 2, PredicatedTileIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>, bfloat16_t, 0, NoPermute, 0>, FragmentIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, Array<float, 4, 1>, RowMajor>, TileIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, RowMajor>, SharedLoadIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>::CompactedThreadMap, float, 32>, LinearCombination<bfloat16_t, 8, float, float, 0, 2, bfloat16_t>, MatrixShape<0, 8>, 1, 1>, GemmIdentityThreadblockSwizzle<1>, 0>>(Params) (4, 14, 1)x(128, 1, 1), Context 1, Stream 7, Device 0, CC 8.9
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz        10.19
+    SM Frequency                    Ghz         2.16
+    Elapsed Cycles                cycle       34,028
+    Memory Throughput                 %        37.52
+    DRAM Throughput                   %        32.51
+    Duration                         us        15.71
+    L1/TEX Cache Throughput           %        50.54
+    L2 Cache Throughput               %        37.52
+    SM Active Cycles              cycle    12,631.42
+    Compute (SM) Throughput           %        12.90
+    ----------------------- ----------- ------------
+
+    OPT   This kernel grid is too small to fill the available resources on this device, resulting in only 0.2 full      
+          waves across all SMs. Look at Launch Statistics for more details.                                             
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   128
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                     56
+    Registers Per Thread             register/thread             142
+    Shared Memory Configuration Size           Kbyte          102.40
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block      Kbyte/block           36.86
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM             128
+    Stack Size                                                 1,024
+    Threads                                   thread           7,168
+    # TPCs                                                        64
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                                0.22
+    -------------------------------- --------------- ---------------
+
+    OPT   Est. Speedup: 56.25%                                                                                          
+          The grid for this launch is configured to execute only 56 blocks, which is less than the GPU's 128            
+          multiprocessors. This can underutilize some multiprocessors. If you do not intend to execute this kernel      
+          concurrently with other workloads, consider reducing the block size to have at least one block per            
+          multiprocessor or increase the size of the grid to fully utilize the available hardware resources. See the    
+          Hardware Model (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model)            
+          description for more details on launch configurations.                                                        
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           24
+    Block Limit Registers                 block            3
+    Block Limit Shared Mem                block            2
+    Block Limit Warps                     block           12
+    Theoretical Active Warps per SM        warp            8
+    Theoretical Occupancy                     %        16.67
+    Achieved Occupancy                        %         8.39
+    Achieved Active Warps Per SM           warp         4.03
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 83.33%                                                                                    
+          The 2.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the       
+          hardware maximum of 12. This kernel's theoretical occupancy (16.7%) is limited by the required amount of      
+          shared memory.                                                                                                
+
+  void Kernel<Gemm<MmaMultistage<GemmShape<32, 64, 128>, PredicatedTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajor, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, PredicatedTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajor, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, float, RowMajor, MmaPolicy<MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, MatrixShape<0, 0>, MatrixShape<0, 0>, 2>, 3, 0, bool>, Epilogue<GemmShape<32, 64, 128>, MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, 2, PredicatedTileIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>, bfloat16_t, 0, NoPermute, 0>, FragmentIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, Array<float, 4, 1>, RowMajor>, TileIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, RowMajor>, SharedLoadIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>::CompactedThreadMap, float, 32>, LinearCombination<bfloat16_t, 8, float, float, 0, 2, bfloat16_t>, MatrixShape<0, 8>, 1, 1>, GemmIdentityThreadblockSwizzle<1>, 0>>(Params) (4, 14, 1)x(128, 1, 1), Context 1, Stream 7, Device 0, CC 8.9
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz        10.20
+    SM Frequency                    Ghz         2.15
+    Elapsed Cycles                cycle       32,765
+    Memory Throughput                 %        39.00
+    DRAM Throughput                   %        33.70
+    Duration                         us        15.14
+    L1/TEX Cache Throughput           %        49.17
+    L2 Cache Throughput               %        39.00
+    SM Active Cycles              cycle    12,984.59
+    Compute (SM) Throughput           %        12.82
+    ----------------------- ----------- ------------
+
+    OPT   This kernel grid is too small to fill the available resources on this device, resulting in only 0.2 full      
+          waves across all SMs. Look at Launch Statistics for more details.                                             
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   128
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                     56
+    Registers Per Thread             register/thread             142
+    Shared Memory Configuration Size           Kbyte          102.40
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block      Kbyte/block           36.86
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM             128
+    Stack Size                                                 1,024
+    Threads                                   thread           7,168
+    # TPCs                                                        64
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                                0.22
+    -------------------------------- --------------- ---------------
+
+    OPT   Est. Speedup: 56.25%                                                                                          
+          The grid for this launch is configured to execute only 56 blocks, which is less than the GPU's 128            
+          multiprocessors. This can underutilize some multiprocessors. If you do not intend to execute this kernel      
+          concurrently with other workloads, consider reducing the block size to have at least one block per            
+          multiprocessor or increase the size of the grid to fully utilize the available hardware resources. See the    
+          Hardware Model (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model)            
+          description for more details on launch configurations.                                                        
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           24
+    Block Limit Registers                 block            3
+    Block Limit Shared Mem                block            2
+    Block Limit Warps                     block           12
+    Theoretical Active Warps per SM        warp            8
+    Theoretical Occupancy                     %        16.67
+    Achieved Occupancy                        %         8.30
+    Achieved Active Warps Per SM           warp         3.98
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 83.33%                                                                                    
+          The 2.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the       
+          hardware maximum of 12. This kernel's theoretical occupancy (16.7%) is limited by the required amount of      
+          shared memory.                                                                                                
+
+  void Kernel<Gemm<MmaMultistage<GemmShape<32, 64, 128>, PredicatedTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajor, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, PredicatedTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajor, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, float, RowMajor, MmaPolicy<MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, MatrixShape<0, 0>, MatrixShape<0, 0>, 2>, 3, 0, bool>, Epilogue<GemmShape<32, 64, 128>, MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, 2, PredicatedTileIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>, bfloat16_t, 0, NoPermute, 0>, FragmentIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, Array<float, 4, 1>, RowMajor>, TileIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, RowMajor>, SharedLoadIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>::CompactedThreadMap, float, 32>, LinearCombination<bfloat16_t, 8, float, float, 0, 2, bfloat16_t>, MatrixShape<0, 8>, 1, 1>, GemmIdentityThreadblockSwizzle<1>, 0>>(Params) (4, 14, 1)x(128, 1, 1), Context 1, Stream 7, Device 0, CC 8.9
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz        10.21
+    SM Frequency                    Ghz         2.16
+    Elapsed Cycles                cycle       33,132
+    Memory Throughput                 %        38.56
+    DRAM Throughput                   %        33.33
+    Duration                         us        15.30
+    L1/TEX Cache Throughput           %        49.40
+    L2 Cache Throughput               %        38.56
+    SM Active Cycles              cycle    12,924.33
+    Compute (SM) Throughput           %        12.65
+    ----------------------- ----------- ------------
+
+    OPT   This kernel grid is too small to fill the available resources on this device, resulting in only 0.2 full      
+          waves across all SMs. Look at Launch Statistics for more details.                                             
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   128
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                     56
+    Registers Per Thread             register/thread             142
+    Shared Memory Configuration Size           Kbyte          102.40
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block      Kbyte/block           36.86
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM             128
+    Stack Size                                                 1,024
+    Threads                                   thread           7,168
+    # TPCs                                                        64
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                                0.22
+    -------------------------------- --------------- ---------------
+
+    OPT   Est. Speedup: 56.25%                                                                                          
+          The grid for this launch is configured to execute only 56 blocks, which is less than the GPU's 128            
+          multiprocessors. This can underutilize some multiprocessors. If you do not intend to execute this kernel      
+          concurrently with other workloads, consider reducing the block size to have at least one block per            
+          multiprocessor or increase the size of the grid to fully utilize the available hardware resources. See the    
+          Hardware Model (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model)            
+          description for more details on launch configurations.                                                        
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           24
+    Block Limit Registers                 block            3
+    Block Limit Shared Mem                block            2
+    Block Limit Warps                     block           12
+    Theoretical Active Warps per SM        warp            8
+    Theoretical Occupancy                     %        16.67
+    Achieved Occupancy                        %         8.40
+    Achieved Active Warps Per SM           warp         4.03
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 83.33%                                                                                    
+          The 2.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the       
+          hardware maximum of 12. This kernel's theoretical occupancy (16.7%) is limited by the required amount of      
+          shared memory.                                                                                                
+
+  void Kernel<Gemm<MmaMultistage<GemmShape<32, 64, 128>, PredicatedTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajor, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, PredicatedTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajor, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, float, RowMajor, MmaPolicy<MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, MatrixShape<0, 0>, MatrixShape<0, 0>, 2>, 3, 0, bool>, Epilogue<GemmShape<32, 64, 128>, MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, 2, PredicatedTileIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>, bfloat16_t, 0, NoPermute, 0>, FragmentIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, Array<float, 4, 1>, RowMajor>, TileIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, RowMajor>, SharedLoadIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>::CompactedThreadMap, float, 32>, LinearCombination<bfloat16_t, 8, float, float, 0, 2, bfloat16_t>, MatrixShape<0, 8>, 1, 1>, GemmIdentityThreadblockSwizzle<1>, 0>>(Params) (4, 14, 1)x(128, 1, 1), Context 1, Stream 7, Device 0, CC 8.9
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz        10.21
+    SM Frequency                    Ghz         2.16
+    Elapsed Cycles                cycle       33,535
+    Memory Throughput                 %        38.10
+    DRAM Throughput                   %        33.06
+    Duration                         us        15.46
+    L1/TEX Cache Throughput           %        49.18
+    L2 Cache Throughput               %        38.10
+    SM Active Cycles              cycle    12,982.02
+    Compute (SM) Throughput           %        12.96
+    ----------------------- ----------- ------------
+
+    OPT   This kernel grid is too small to fill the available resources on this device, resulting in only 0.2 full      
+          waves across all SMs. Look at Launch Statistics for more details.                                             
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   128
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                     56
+    Registers Per Thread             register/thread             142
+    Shared Memory Configuration Size           Kbyte          102.40
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block      Kbyte/block           36.86
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM             128
+    Stack Size                                                 1,024
+    Threads                                   thread           7,168
+    # TPCs                                                        64
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                                0.22
+    -------------------------------- --------------- ---------------
+
+    OPT   Est. Speedup: 56.25%                                                                                          
+          The grid for this launch is configured to execute only 56 blocks, which is less than the GPU's 128            
+          multiprocessors. This can underutilize some multiprocessors. If you do not intend to execute this kernel      
+          concurrently with other workloads, consider reducing the block size to have at least one block per            
+          multiprocessor or increase the size of the grid to fully utilize the available hardware resources. See the    
+          Hardware Model (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model)            
+          description for more details on launch configurations.                                                        
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           24
+    Block Limit Registers                 block            3
+    Block Limit Shared Mem                block            2
+    Block Limit Warps                     block           12
+    Theoretical Active Warps per SM        warp            8
+    Theoretical Occupancy                     %        16.67
+    Achieved Occupancy                        %         8.22
+    Achieved Active Warps Per SM           warp         3.95
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 83.33%                                                                                    
+          The 2.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the       
+          hardware maximum of 12. This kernel's theoretical occupancy (16.7%) is limited by the required amount of      
+          shared memory.                                                                                                
+
+  void Kernel<Gemm<MmaMultistage<GemmShape<32, 64, 128>, PredicatedTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajor, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, PredicatedTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajor, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, float, RowMajor, MmaPolicy<MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, MatrixShape<0, 0>, MatrixShape<0, 0>, 2>, 3, 0, bool>, Epilogue<GemmShape<32, 64, 128>, MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, 2, PredicatedTileIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>, bfloat16_t, 0, NoPermute, 0>, FragmentIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, Array<float, 4, 1>, RowMajor>, TileIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, RowMajor>, SharedLoadIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>::CompactedThreadMap, float, 32>, LinearCombination<bfloat16_t, 8, float, float, 0, 2, bfloat16_t>, MatrixShape<0, 8>, 1, 1>, GemmIdentityThreadblockSwizzle<1>, 0>>(Params) (4, 14, 1)x(128, 1, 1), Context 1, Stream 7, Device 0, CC 8.9
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz        10.20
+    SM Frequency                    Ghz         2.17
+    Elapsed Cycles                cycle       33,408
+    Memory Throughput                 %        38.35
+    DRAM Throughput                   %        33.35
+    Duration                         us        15.30
+    L1/TEX Cache Throughput           %        50.03
+    L2 Cache Throughput               %        38.35
+    SM Active Cycles              cycle    12,759.20
+    Compute (SM) Throughput           %        12.91
+    ----------------------- ----------- ------------
+
+    OPT   This kernel grid is too small to fill the available resources on this device, resulting in only 0.2 full      
+          waves across all SMs. Look at Launch Statistics for more details.                                             
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   128
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                     56
+    Registers Per Thread             register/thread             142
+    Shared Memory Configuration Size           Kbyte          102.40
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block      Kbyte/block           36.86
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM             128
+    Stack Size                                                 1,024
+    Threads                                   thread           7,168
+    # TPCs                                                        64
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                                0.22
+    -------------------------------- --------------- ---------------
+
+    OPT   Est. Speedup: 56.25%                                                                                          
+          The grid for this launch is configured to execute only 56 blocks, which is less than the GPU's 128            
+          multiprocessors. This can underutilize some multiprocessors. If you do not intend to execute this kernel      
+          concurrently with other workloads, consider reducing the block size to have at least one block per            
+          multiprocessor or increase the size of the grid to fully utilize the available hardware resources. See the    
+          Hardware Model (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model)            
+          description for more details on launch configurations.                                                        
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           24
+    Block Limit Registers                 block            3
+    Block Limit Shared Mem                block            2
+    Block Limit Warps                     block           12
+    Theoretical Active Warps per SM        warp            8
+    Theoretical Occupancy                     %        16.67
+    Achieved Occupancy                        %         8.36
+    Achieved Active Warps Per SM           warp         4.01
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 83.33%                                                                                    
+          The 2.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the       
+          hardware maximum of 12. This kernel's theoretical occupancy (16.7%) is limited by the required amount of      
+          shared memory.                                                                                                
+
+  void Kernel<Gemm<MmaMultistage<GemmShape<32, 64, 128>, PredicatedTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajor, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, PredicatedTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajor, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, float, RowMajor, MmaPolicy<MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, MatrixShape<0, 0>, MatrixShape<0, 0>, 2>, 3, 0, bool>, Epilogue<GemmShape<32, 64, 128>, MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, 2, PredicatedTileIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>, bfloat16_t, 0, NoPermute, 0>, FragmentIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, Array<float, 4, 1>, RowMajor>, TileIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, RowMajor>, SharedLoadIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>::CompactedThreadMap, float, 32>, LinearCombination<bfloat16_t, 8, float, float, 0, 2, bfloat16_t>, MatrixShape<0, 8>, 1, 1>, GemmIdentityThreadblockSwizzle<1>, 0>>(Params) (4, 14, 1)x(128, 1, 1), Context 1, Stream 7, Device 0, CC 8.9
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz        10.20
+    SM Frequency                    Ghz         2.17
+    Elapsed Cycles                cycle       33,510
+    Memory Throughput                 %        38.23
+    DRAM Throughput                   %        33.28
+    Duration                         us        15.36
+    L1/TEX Cache Throughput           %        50.14
+    L2 Cache Throughput               %        38.23
+    SM Active Cycles              cycle    12,733.55
+    Compute (SM) Throughput           %        13.02
+    ----------------------- ----------- ------------
+
+    OPT   This kernel grid is too small to fill the available resources on this device, resulting in only 0.2 full      
+          waves across all SMs. Look at Launch Statistics for more details.                                             
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   128
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                     56
+    Registers Per Thread             register/thread             142
+    Shared Memory Configuration Size           Kbyte          102.40
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block      Kbyte/block           36.86
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM             128
+    Stack Size                                                 1,024
+    Threads                                   thread           7,168
+    # TPCs                                                        64
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                                0.22
+    -------------------------------- --------------- ---------------
+
+    OPT   Est. Speedup: 56.25%                                                                                          
+          The grid for this launch is configured to execute only 56 blocks, which is less than the GPU's 128            
+          multiprocessors. This can underutilize some multiprocessors. If you do not intend to execute this kernel      
+          concurrently with other workloads, consider reducing the block size to have at least one block per            
+          multiprocessor or increase the size of the grid to fully utilize the available hardware resources. See the    
+          Hardware Model (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model)            
+          description for more details on launch configurations.                                                        
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           24
+    Block Limit Registers                 block            3
+    Block Limit Shared Mem                block            2
+    Block Limit Warps                     block           12
+    Theoretical Active Warps per SM        warp            8
+    Theoretical Occupancy                     %        16.67
+    Achieved Occupancy                        %         8.40
+    Achieved Active Warps Per SM           warp         4.03
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 83.33%                                                                                    
+          The 2.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the       
+          hardware maximum of 12. This kernel's theoretical occupancy (16.7%) is limited by the required amount of      
+          shared memory.                                                                                                
+
+  void Kernel<Gemm<MmaMultistage<GemmShape<32, 64, 128>, PredicatedTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajor, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, PredicatedTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajor, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, float, RowMajor, MmaPolicy<MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, MatrixShape<0, 0>, MatrixShape<0, 0>, 2>, 3, 0, bool>, Epilogue<GemmShape<32, 64, 128>, MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, 2, PredicatedTileIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>, bfloat16_t, 0, NoPermute, 0>, FragmentIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, Array<float, 4, 1>, RowMajor>, TileIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, RowMajor>, SharedLoadIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>::CompactedThreadMap, float, 32>, LinearCombination<bfloat16_t, 8, float, float, 0, 2, bfloat16_t>, MatrixShape<0, 8>, 1, 1>, GemmIdentityThreadblockSwizzle<1>, 0>>(Params) (4, 14, 1)x(128, 1, 1), Context 1, Stream 7, Device 0, CC 8.9
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz        10.21
+    SM Frequency                    Ghz         2.18
+    Elapsed Cycles                cycle       33,153
+    Memory Throughput                 %        38.65
+    DRAM Throughput                   %        33.66
+    Duration                         us        15.17
+    L1/TEX Cache Throughput           %        49.50
+    L2 Cache Throughput               %        38.65
+    SM Active Cycles              cycle    12,897.19
+    Compute (SM) Throughput           %        13.03
+    ----------------------- ----------- ------------
+
+    OPT   This kernel grid is too small to fill the available resources on this device, resulting in only 0.2 full      
+          waves across all SMs. Look at Launch Statistics for more details.                                             
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   128
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                     56
+    Registers Per Thread             register/thread             142
+    Shared Memory Configuration Size           Kbyte          102.40
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block      Kbyte/block           36.86
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM             128
+    Stack Size                                                 1,024
+    Threads                                   thread           7,168
+    # TPCs                                                        64
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                                0.22
+    -------------------------------- --------------- ---------------
+
+    OPT   Est. Speedup: 56.25%                                                                                          
+          The grid for this launch is configured to execute only 56 blocks, which is less than the GPU's 128            
+          multiprocessors. This can underutilize some multiprocessors. If you do not intend to execute this kernel      
+          concurrently with other workloads, consider reducing the block size to have at least one block per            
+          multiprocessor or increase the size of the grid to fully utilize the available hardware resources. See the    
+          Hardware Model (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model)            
+          description for more details on launch configurations.                                                        
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           24
+    Block Limit Registers                 block            3
+    Block Limit Shared Mem                block            2
+    Block Limit Warps                     block           12
+    Theoretical Active Warps per SM        warp            8
+    Theoretical Occupancy                     %        16.67
+    Achieved Occupancy                        %         8.33
+    Achieved Active Warps Per SM           warp         4.00
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 83.33%                                                                                    
+          The 2.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the       
+          hardware maximum of 12. This kernel's theoretical occupancy (16.7%) is limited by the required amount of      
+          shared memory.                                                                                                
+
+  void Kernel<Gemm<MmaMultistage<GemmShape<32, 64, 128>, PredicatedTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajor, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, PredicatedTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajor, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, float, RowMajor, MmaPolicy<MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, MatrixShape<0, 0>, MatrixShape<0, 0>, 2>, 3, 0, bool>, Epilogue<GemmShape<32, 64, 128>, MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, 2, PredicatedTileIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>, bfloat16_t, 0, NoPermute, 0>, FragmentIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, Array<float, 4, 1>, RowMajor>, TileIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, RowMajor>, SharedLoadIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>::CompactedThreadMap, float, 32>, LinearCombination<bfloat16_t, 8, float, float, 0, 2, bfloat16_t>, MatrixShape<0, 8>, 1, 1>, GemmIdentityThreadblockSwizzle<1>, 0>>(Params) (4, 14, 1)x(128, 1, 1), Context 1, Stream 7, Device 0, CC 8.9
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz        10.21
+    SM Frequency                    Ghz         2.17
+    Elapsed Cycles                cycle       33,672
+    Memory Throughput                 %        38.01
+    DRAM Throughput                   %        33.04
+    Duration                         us        15.42
+    L1/TEX Cache Throughput           %        49.05
+    L2 Cache Throughput               %        38.01
+    SM Active Cycles              cycle    13,016.60
+    Compute (SM) Throughput           %        13.20
+    ----------------------- ----------- ------------
+
+    OPT   This kernel grid is too small to fill the available resources on this device, resulting in only 0.2 full      
+          waves across all SMs. Look at Launch Statistics for more details.                                             
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   128
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                     56
+    Registers Per Thread             register/thread             142
+    Shared Memory Configuration Size           Kbyte          102.40
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block      Kbyte/block           36.86
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM             128
+    Stack Size                                                 1,024
+    Threads                                   thread           7,168
+    # TPCs                                                        64
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                                0.22
+    -------------------------------- --------------- ---------------
+
+    OPT   Est. Speedup: 56.25%                                                                                          
+          The grid for this launch is configured to execute only 56 blocks, which is less than the GPU's 128            
+          multiprocessors. This can underutilize some multiprocessors. If you do not intend to execute this kernel      
+          concurrently with other workloads, consider reducing the block size to have at least one block per            
+          multiprocessor or increase the size of the grid to fully utilize the available hardware resources. See the    
+          Hardware Model (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model)            
+          description for more details on launch configurations.                                                        
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           24
+    Block Limit Registers                 block            3
+    Block Limit Shared Mem                block            2
+    Block Limit Warps                     block           12
+    Theoretical Active Warps per SM        warp            8
+    Theoretical Occupancy                     %        16.67
+    Achieved Occupancy                        %         8.26
+    Achieved Active Warps Per SM           warp         3.97
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 83.33%                                                                                    
+          The 2.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the       
+          hardware maximum of 12. This kernel's theoretical occupancy (16.7%) is limited by the required amount of      
+          shared memory.                                                                                                
+
+  void Kernel<Gemm<MmaMultistage<GemmShape<32, 64, 128>, PredicatedTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajor, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, PredicatedTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajor, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, float, RowMajor, MmaPolicy<MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, MatrixShape<0, 0>, MatrixShape<0, 0>, 2>, 3, 0, bool>, Epilogue<GemmShape<32, 64, 128>, MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, 2, PredicatedTileIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>, bfloat16_t, 0, NoPermute, 0>, FragmentIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, Array<float, 4, 1>, RowMajor>, TileIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, RowMajor>, SharedLoadIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>::CompactedThreadMap, float, 32>, LinearCombination<bfloat16_t, 8, float, float, 0, 2, bfloat16_t>, MatrixShape<0, 8>, 1, 1>, GemmIdentityThreadblockSwizzle<1>, 0>>(Params) (4, 14, 1)x(128, 1, 1), Context 1, Stream 7, Device 0, CC 8.9
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz        10.22
+    SM Frequency                    Ghz         2.17
+    Elapsed Cycles                cycle       33,115
+    Memory Throughput                 %        38.64
+    DRAM Throughput                   %        33.62
+    Duration                         us        15.17
+    L1/TEX Cache Throughput           %        48.64
+    L2 Cache Throughput               %        38.64
+    SM Active Cycles              cycle    13,123.74
+    Compute (SM) Throughput           %        13.20
+    ----------------------- ----------- ------------
+
+    OPT   This kernel grid is too small to fill the available resources on this device, resulting in only 0.2 full      
+          waves across all SMs. Look at Launch Statistics for more details.                                             
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   128
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                     56
+    Registers Per Thread             register/thread             142
+    Shared Memory Configuration Size           Kbyte          102.40
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block      Kbyte/block           36.86
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM             128
+    Stack Size                                                 1,024
+    Threads                                   thread           7,168
+    # TPCs                                                        64
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                                0.22
+    -------------------------------- --------------- ---------------
+
+    OPT   Est. Speedup: 56.25%                                                                                          
+          The grid for this launch is configured to execute only 56 blocks, which is less than the GPU's 128            
+          multiprocessors. This can underutilize some multiprocessors. If you do not intend to execute this kernel      
+          concurrently with other workloads, consider reducing the block size to have at least one block per            
+          multiprocessor or increase the size of the grid to fully utilize the available hardware resources. See the    
+          Hardware Model (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model)            
+          description for more details on launch configurations.                                                        
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           24
+    Block Limit Registers                 block            3
+    Block Limit Shared Mem                block            2
+    Block Limit Warps                     block           12
+    Theoretical Active Warps per SM        warp            8
+    Theoretical Occupancy                     %        16.67
+    Achieved Occupancy                        %         8.17
+    Achieved Active Warps Per SM           warp         3.92
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 83.33%                                                                                    
+          The 2.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the       
+          hardware maximum of 12. This kernel's theoretical occupancy (16.7%) is limited by the required amount of      
+          shared memory.                                                                                                
+
+  void Kernel<Gemm<MmaMultistage<GemmShape<32, 64, 128>, PredicatedTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajor, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<32, 128>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 32>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, PredicatedTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajor, 0, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, Array<float_e4m3_t, 16, 0>, 0, NoPermute>, RegularTileAccessIterator<MatrixShape<128, 64>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, 1, PitchLinearWarpRakedThreadMap<PitchLinearShape<128, 64>, 128, PitchLinearShape<8, 4>, 16>, 16>, 1, float, RowMajor, MmaPolicy<MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, MatrixShape<0, 0>, MatrixShape<0, 0>, 2>, 3, 0, bool>, Epilogue<GemmShape<32, 64, 128>, MmaTensorOp<GemmShape<16, 64, 64>, float_e4m3_t, RowMajorTensorOpMultiplicandCrosswise<8, 128>, float_e4m3_t, ColumnMajorTensorOpMultiplicandCrosswise<8, 128>, float, RowMajor, MmaTensorOpPolicy<Mma<GemmShape<16, 8, 32>, 32, float_e4m3_t, RowMajor, float_e4m3_t, ColumnMajor, float, RowMajor, OpMultiplyAdd>, MatrixShape<1, 1>>, 2, 0, bool>, 2, PredicatedTileIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>, bfloat16_t, 0, NoPermute, 0>, FragmentIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, Array<float, 4, 1>, RowMajor>, TileIteratorTensorOp<GemmShape<16, 64, 64>, GemmShape<16, 8, 32>, float, RowMajor>, SharedLoadIterator<OutputTileOptimalThreadMap<OutputTileShape<64, 8, 2, 1, 1>, OutputTileShape<1, 2, 1, 1, 2>, 128, 8, 16>::CompactedThreadMap, float, 32>, LinearCombination<bfloat16_t, 8, float, float, 0, 2, bfloat16_t>, MatrixShape<0, 8>, 1, 1>, GemmIdentityThreadblockSwizzle<1>, 0>>(Params) (4, 14, 1)x(128, 1, 1), Context 1, Stream 7, Device 0, CC 8.9
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz        10.21
+    SM Frequency                    Ghz         2.17
+    Elapsed Cycles                cycle       32,624
+    Memory Throughput                 %        39.28
+    DRAM Throughput                   %        34.11
+    Duration                         us        14.94
+    L1/TEX Cache Throughput           %        50.56
+    L2 Cache Throughput               %        39.28
+    SM Active Cycles              cycle    12,625.94
+    Compute (SM) Throughput           %        12.75
+    ----------------------- ----------- ------------
+
+    OPT   This kernel grid is too small to fill the available resources on this device, resulting in only 0.2 full      
+          waves across all SMs. Look at Launch Statistics for more details.                                             
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   128
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                     56
+    Registers Per Thread             register/thread             142
+    Shared Memory Configuration Size           Kbyte          102.40
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block      Kbyte/block           36.86
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM             128
+    Stack Size                                                 1,024
+    Threads                                   thread           7,168
+    # TPCs                                                        64
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                                0.22
+    -------------------------------- --------------- ---------------
+
+    OPT   Est. Speedup: 56.25%                                                                                          
+          The grid for this launch is configured to execute only 56 blocks, which is less than the GPU's 128            
+          multiprocessors. This can underutilize some multiprocessors. If you do not intend to execute this kernel      
+          concurrently with other workloads, consider reducing the block size to have at least one block per            
+          multiprocessor or increase the size of the grid to fully utilize the available hardware resources. See the    
+          Hardware Model (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model)            
+          description for more details on launch configurations.                                                        
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           24
+    Block Limit Registers                 block            3
+    Block Limit Shared Mem                block            2
+    Block Limit Warps                     block           12
+    Theoretical Active Warps per SM        warp            8
+    Theoretical Occupancy                     %        16.67
+    Achieved Occupancy                        %         8.43
+    Achieved Active Warps Per SM           warp         4.05
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 83.33%                                                                                    
+          The 2.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the       
+          hardware maximum of 12. This kernel's theoretical occupancy (16.7%) is limited by the required amount of      
+          shared memory.                                                                                                
+

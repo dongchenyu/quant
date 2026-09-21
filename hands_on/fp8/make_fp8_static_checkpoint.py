@@ -13,7 +13,7 @@ from safetensors.torch import (load_file, save_file)
 
 from transformers import AutoModelForCausalLM
 
-SRC = Path("/root/models/Qwen2.5-0.5B-Instruct")
+SRC = Path("/root/LLMQRT-main/Qwen2.5-0.5B-Instruct")
 DST = Path("/root/models/Qwen2.5-0.5B-Instruct-fp8-static")
 
 INPUT_SCALE_PATH = Path("/root/models/qwen2_fp8_static_input_scales.pt")

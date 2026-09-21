@@ -11,7 +11,7 @@ from transformers import (
     AutoTokenizer,
 )
 
-MODEL_PATH = Path("/root/models/Qwen2.5-0.5B-Instruct")
+MODEL_PATH = Path("/root/LLMQRT-main/Qwen2.5-0.5B-Instruct")
 
 OUTPUT_PATH = Path("/root/models/qwen2_fp8_static_input_scales.pt")
 

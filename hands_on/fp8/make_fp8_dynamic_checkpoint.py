@@ -11,8 +11,9 @@ import torch
 from safetensors.torch import load_file, save_file
 from transformers import AutoModelForCausalLM
 
-SRC = Path("/root/models/Qwen2.5-0.5B-Instruct")
+SRC = Path("/root/LLMQRT-main/Qwen2.5-0.5B-Instruct")
 DST = Path("/root/models/Qwen2.5-0.5B-Instruct-fp8-dynamic")
+# DST = Path("/root/models/Qwen2.5-0.5B-Instruct-fp8-dynamic-rowwise")
 
 FP8 = torch.float8_e4m3fn
 
@@ -57,17 +58,28 @@ for key, tensor in state.items():
             
             # per-tensor FP8 weight scale 
             # W_fp8 = round_fp8(W / scale)
-            amax = w.abs().max()
-            scale = (amax.clamp(min=1e-12) / finfo.max)
+            #### amax = w.abs().max()
+            #### scale = (amax.clamp(min=1e-12) / finfo.max)
             
-            qweight_fp8 = (w / scale).clamp(min=finfo.min, max=finfo.max).to(FP8)
+            #### qweight_fp8 = (w / scale).clamp(min=finfo.min, max=finfo.max).to(FP8)
             
             # FP8DynamicLinear.weight 是 BF16 参数。
             # 因此保存 FP8 round 后的数值，再转换回 BF16, forward 时会再次 .to(FP8)。
-            qweight_storage = (qweight_fp8.to(torch.bfloat16).cpu().contiguous())
-            new_state[key] = qweight_storage
+            #### qweight_storage = (qweight_fp8.to(torch.bfloat16).cpu().contiguous())
+            #### new_state[key] = qweight_storage            
+            #### new_state[module_name + ".weight_scale"] = scale.float().reshape(1).cpu()
             
-            new_state[module_name + ".weight_scale"] = scale.float().reshape(1).cpu()
+            # per-channel FP8 weight scale 
+            amax = w.abs().amax(dim=1, keepdim=True)
+            scale = amax.clamp(min=1e-12) / finfo.max
+
+            qweight_fp8 = (w / scale).clamp(min=finfo.min, max=finfo.max).to(FP8)
+            
+            qweight_storage = qweight_fp8.to(torch.bfloat16)
+            
+            new_state[key] = qweight_storage 
+            
+            new_state[module_name + ".weight_scale"] = scale.float().cpu()           
             
             quantized_count += 1
             
@@ -77,7 +89,7 @@ for key, tensor in state.items():
                 
                 print("original:", tuple(tensor.shape), tensor.dtype)
                 print("FP8 storage:", tuple(qweight_storage.shape), qweight_storage.dtype)
-                print("weight scale:", scale.item())
+                ####print("weight scale:", scale.item())
                 
             continue
         
@@ -110,7 +122,8 @@ config_path = DST / "config.json"
 
 with open(config_path, "r", encoding="utf-8") as f:
     config = json.load(f)
-    
+   
+# "per_tensor" choose mode 
 config["quantization_config"] = {
     "quant_method": "fp8_dynamic_quant",
     "zero_point": False,
@@ -121,7 +134,7 @@ config["quantization_config"] = {
     "modules_to_not_convert": [
         "lm_head"
     ],
-    "per_tensor": True,
+    "per_tensor": False,
 }
 
 with open(config_path, "w", encoding="utf-8") as f:
